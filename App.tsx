@@ -6,10 +6,17 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-class App extends Component {
+interface State {
+  sampleText: string;
+  sampleBoolean: boolean;
+  sampleNum: number;
+}
+
+class App extends Component<{}, State> {
   state = {
     sampleText: 'Hello World',
     sampleBoolean: false,
+    sampleNum: 1,
   };
 
   inputText = () =>
@@ -32,10 +39,18 @@ class App extends Component {
     }
   };
 
+  onAdd = () => {
+    this.setState(prevState => {
+      return {
+        sampleNum: prevState.sampleNum + 1,
+      };
+    });
+  };
+
   render() {
     return (
       <View style={styles.background}>
-        <Text onPress={this.changeState}>{this.state.sampleText}</Text>
+        <Text onPress={this.onAdd}>{this.state.sampleNum}</Text>
       </View>
     );
   }
