@@ -5,6 +5,7 @@
 
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import PropsChild from './propsChild';
 
 interface State {
   sampleText: string;
@@ -50,7 +51,7 @@ class App extends Component<{}, State> {
   render() {
     return (
       <View style={styles.background}>
-        <Text onPress={this.onAdd}>{this.state.sampleNum}</Text>
+        <PropsChild sText={this.state.sampleText} cState={this.changeState} />
       </View>
     );
   }
