@@ -9,12 +9,20 @@ import {View, Text, StyleSheet} from 'react-native';
 class App extends Component {
   state = {
     sampleText: 'Hello World',
+    sampleBoolean: false,
   };
+
+  inputText = () =>
+    this.state.sampleBoolean ? (
+      <Text>It is True</Text>
+    ) : (
+      <Text>It is False</Text>
+    );
 
   render() {
     return (
       <View style={styles.background}>
-        <Text>{this.state.sampleText}</Text>
+        <Text>{this.inputText()}</Text>
       </View>
     );
   }
