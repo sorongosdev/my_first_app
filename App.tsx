@@ -18,11 +18,24 @@ class App extends Component {
     ) : (
       <Text>It is False</Text>
     );
+  changeState = () => {
+    if (!this.state.sampleBoolean) {
+      this.setState({
+        sampleText: 'Text Changed',
+        sampleBoolean: true,
+      });
+    } else {
+      this.setState({
+        sampleText: 'Hello World',
+        sampleBoolean: false,
+      });
+    }
+  };
 
   render() {
     return (
       <View style={styles.background}>
-        <Text>{this.inputText()}</Text>
+        <Text onPress={this.changeState}>{this.state.sampleText}</Text>
       </View>
     );
   }
